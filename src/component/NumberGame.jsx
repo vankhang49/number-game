@@ -124,8 +124,7 @@ export function NumberGame() {
                             style={{
                                 top: `${positions[index]?.y}%`,
                                 left: `${positions[index]?.x}%`,
-                                backgroundColor: hasFailed ? 'red' : correctNumbers.includes(number) ? '#5cea07' : '#ffcc00',
-                                zIndex: `{${numbers}- ${index}}`
+                                backgroundColor: hasFailed ? 'red' : correctNumbers.includes(number) ? '#5cea07' : '#ffcc00'
                             }}
                         >
                             {number}
