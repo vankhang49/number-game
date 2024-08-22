@@ -1,0 +1,133 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin: 0;
+
+  .container-wrapper {
+    width: 60%;
+    height: 100vh;
+    border: 1px solid black;
+    .header {
+      width: 100%;
+      height: 25%;
+      padding: 0 20px;
+      h1 {
+        font-size: 2rem;
+        padding: 0 10px;
+        margin: 0;
+      }
+      h1.success {
+        color: green;
+      }
+
+      h1.fail {
+        color: red;
+      }
+
+      .point-number {
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        align-items: center;
+
+        input {
+          width: 150px;
+          height: 30px;
+          padding: 0 10px;
+          border-radius: 5px;
+        }
+
+        p {
+          min-width: 150px;
+          font-size: 1rem;
+          max-width: 150px;
+        }
+      }
+      .time-play {
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        align-items: center;
+
+        p {
+          min-width: 150px;
+          font-size: 1rem;
+          max-width: 150px;
+        }
+      }
+
+      button {
+        width: 100px;
+        height: 30px;
+        border-radius: 5px;
+        margin: 0 10px;
+        &:hover {
+          background-color: #ccc;
+        }
+      }
+    }
+
+    .game-area {
+      position: relative;
+      width: 95%;
+      height: 70%;
+      border: 2px solid #000;
+      margin: 20px auto;
+      background-color: #f0f0f0;
+      overflow: hidden;
+
+      .number-button {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: #ffcc00;
+        color: #000;
+        font-size: 20px;
+        font-weight: bold;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:disabled {
+          background-color: #40d310;
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    width: 100%;
+    height: 100%;
+    .container-wrapper {
+      width: 80%;
+      border: none;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+    width: 100%;
+    height: 100%;
+    .container-wrapper {
+      width: 100%;
+      border: none;
+      .header {
+        height: 30%;
+      }
+    }
+  }
+}
