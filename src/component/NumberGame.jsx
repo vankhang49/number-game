@@ -10,7 +10,7 @@ export function NumberGame() {
     const [time, setTime] = useState(0);
     const [timer, setTimer] = useState(null);
     const [hiddenNumbers, setHiddenNumbers] = useState([]);
-    const [correctNumbers, setCorrectNumbers] = useState([]); // Các số bấm đúng
+    const [correctNumbers, setCorrectNumbers] = useState([]);
     const [hasFailed, setHasFailed] = useState(false);
 
     useEffect(() => {
@@ -20,14 +20,6 @@ export function NumberGame() {
             }
         };
     }, [timer]);
-
-    const shuffleArray = (array) => {
-        for (let i = array.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [array[i], array[j]] = [array[j], array[i]];
-        }
-        return array;
-    };
 
     const generateRandomPositions = (count) => {
         const positions = [];
@@ -46,7 +38,7 @@ export function NumberGame() {
             return;
         }
 
-        const newNumbers = shuffleArray([...Array(number).keys()].map(i => i + 1));
+        const newNumbers = Array.from({ length: number }, (_, i) => i + 1); // Tạo dãy số từ 1 đến number
         setNumbers(newNumbers);
         setClickedOrder([]);
         setMessage('');
@@ -125,6 +117,7 @@ export function NumberGame() {
                                 top: `${positions[index]?.y}%`,
                                 left: `${positions[index]?.x}%`,
                                 backgroundColor: hasFailed ? 'red' : correctNumbers.includes(number) ? '#5cea07' : '#ffcc00',
+                                zIndex: `${inputNumber - index}`,
                             }}
                         >
                             {number}
