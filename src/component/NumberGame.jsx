@@ -41,7 +41,7 @@ export function NumberGame() {
 
     const handleStartGame = () => {
         const number = parseInt(inputNumber);
-        if (isNaN(number) || number <= 0 || number > 1000) {
+        if (isNaN(number) || number <= 0 || number > 10000) {
             setMessage('Please enter a valid number greater than 0 and less than 10000!');
             return;
         }
@@ -125,6 +125,7 @@ export function NumberGame() {
                                 top: `${positions[index]?.y}%`,
                                 left: `${positions[index]?.x}%`,
                                 backgroundColor: hasFailed ? 'red' : correctNumbers.includes(number) ? '#5cea07' : '#ffcc00',
+                                zIndex: {numbers-index}
                             }}
                         >
                             {number}
